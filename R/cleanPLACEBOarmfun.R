@@ -11,7 +11,7 @@ cleanPLACEBOtrials.fun=function(datapath){
   ftpath=paste(datapath,"/ft.csv",sep="")
   qspath=paste(datapath,"/qs.csv",sep="")
   
-  
+  #test
   
   ## Read Biogen dataset that contains the demographic and baseline information
   datadm <- read.csv(dmpath)
@@ -19,7 +19,7 @@ cleanPLACEBOtrials.fun=function(datapath){
   ft <- read.csv(ftpath)
   qs <- read.csv(qspath) 
   
-  ###############################################DM dataset-demographics#####################################################
+########DM dataset-demographics#####################################################
   #keeping only variables:  USUBJID, AGE, SEX, RACE
   keeps<-c("USUBJID","AGE","SEX","RACE")
   demographics<-datadm[,keeps]
