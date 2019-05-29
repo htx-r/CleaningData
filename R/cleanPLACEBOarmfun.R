@@ -19,7 +19,7 @@ cleanPLACEBOtrials.fun=function(datapath){
   ft <- read.csv(ftpath)
   qs <- read.csv(qspath) 
   
-  ###############################################DM dataset-demographics#####################################################
+  ##############################################DM dataset-demographics#####################################################
   #keeping only variables:  USUBJID, AGE, SEX, RACE
   keeps<-c("USUBJID","AGE","SEX","RACE")
   demographics<-datadm[,keeps]
