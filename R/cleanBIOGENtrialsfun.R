@@ -1,7 +1,6 @@
 
 cleanBIOGENtrials.fun=function(datapath){
 
-rm(list=ls())
 library(readxl)
 
 
