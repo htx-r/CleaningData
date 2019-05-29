@@ -130,4 +130,5 @@ cleanPLACEBOtrials.fun=function(datapath){
   
   rm(conuncontimes,datace,datadm,demographics,f,ft,ft1,obs3,observationaltime,q,qs,qs1,relapsestime,unconfirm,unconfirmed
      ,unconfirmed1,unconfirmed2,unconfirmtime,confirmed,confirmed1,keep,keeps)
+  return(allrel)
 }
