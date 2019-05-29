@@ -5,9 +5,9 @@ rm(list=ls())
 library(readxl)
 
 
-  adslpath=paste(mydatapath,"/adsl.csv",sep="")
-  adarrpath=paste(mydatapath,"/adarr.csv",sep="")
-  adrelpath=paste(mydatapath,"/adrel.csv",sep="")
+  adslpath=paste(datapath,"/adsl.csv",sep="")
+  adarrpath=paste(datapath,"/adarr.csv",sep="")
+  adrelpath=paste(datapath,"/adrel.csv",sep="")
 
 
 ## Read Biogen dataset that contains the demographic and baseline information
