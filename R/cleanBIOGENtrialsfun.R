@@ -14,7 +14,7 @@
 #datapath="/Users/tasneem/Desktop/TasnimPhD/multiple sclerosis/IPD data from 6 Biogen trials"
 
 cleanBIOGENtrials.fun=function(datapath){
-  rm(list=ls())
+  #rm(list=ls())
   
   library(readxl)
   
