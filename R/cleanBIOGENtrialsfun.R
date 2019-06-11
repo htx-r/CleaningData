@@ -1,4 +1,3 @@
-
 cleanBIOGENtrials.fun=function(datapath){
 
 library(readxl)
