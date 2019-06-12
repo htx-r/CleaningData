@@ -77,9 +77,11 @@ cleanBIOGENtrials.fun=function(datapath){
   
   # change names of the studies
   levels(adsl01$STUDYID) <- c('ADVANCE', 'DEFINE', 'CONFIRM','AFFIRM','SENTINEL','MSCRG')
+  levels(adarr_OBJREL$STUDYID) <- c('ADVANCE', 'DEFINE', 'CONFIRM','AFFIRM','SENTINEL','MSCRG')
   
   # change the names (levels) of the drugs in ADSL dataset
   levels(adsl01$TRT01A )[c(2,3,6)] <- c('Dimethyl fumarate','Dimethyl fumarate','Glatiramer acetate')
+  levels(adarr_OBJREL$TRTA)[c(2,3,6)] <- c('Dimethyl fumarate','Dimethyl fumarate','Glatiramer acetate')
   
   # return both datastes
   return(list(adsl01=adsl01,adarr_OBJREL=adarr_OBJREL))
