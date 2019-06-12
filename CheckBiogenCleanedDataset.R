@@ -1,5 +1,4 @@
 ##%%%%%%%%
-#Check the email before from Gerogia that ask me to change the names of the treatments
 
 library(devtools)
 install_github('htx-r/CleaningData')
@@ -12,18 +11,41 @@ cleanBIOGENtrials <- cleanBIOGENtrials.fun(datapath)
 adarr_OBJREL <- cleanBIOGENtrials$adarr_OBJREL
 adsl01 <- cleanBIOGENtrials$adsl01
 # Table for each study how many patients have and have not relapsed
-table(adarr_OBJREL$AVISIT[adarr_OBJREL$AVAL>0],adarr_OBJREL$STUDYID[adarr_OBJREL$AVAL>0])
-table(adarr_OBJREL$AVISIT[adarr_OBJREL$AVAL==0],adarr_OBJREL$STUDYID[adarr_OBJREL$AVAL==0])
+as.matrix(table(adarr_OBJREL$AVISIT[adarr_OBJREL$AVAL>0],adarr_OBJREL$STUDYID[adarr_OBJREL$AVAL>0]))+as.matrix(table(adarr_OBJREL$AVISIT[adarr_OBJREL$AVAL==0],adarr_OBJREL$STUDYID[adarr_OBJREL$AVAL==0]))
 
+
+# Table for each study how many patients in each drugs
+table(adarr_OBJREL$TRTA[adarr_OBJREL$AVISIT=='Overall 0-2 Years'],adarr_OBJREL$STUDYID[adarr_OBJREL$AVISIT=='Overall 0-2 Years'])
+#apply(as.matrix(table(adarr_OBJREL$TRTA,adarr_OBJREL$STUDYID))#,2,sum)
+
+
+##### check if the number of relapsed in IPD and articles are matched
+##### IPD dataset
 # within one year
 table(adsl01$STUDYID,adsl01$RELAPSE1year)
+apply(as.matrix(table(adsl01$STUDYID,adsl01$RELAPSE1year)),1,sum)
 
 # within 2 years
 table(adsl01$STUDYID,adsl01$RELAPSE2year)
+apply(as.matrix(table(adsl01$STUDYID,adsl01$RELAPSE2year)),1,sum)
 
+##### Articles
+# Confirm
+totalRelpasedCONFIRM <- 0.41*363 + 0.29*359 + 0.24*345+ 0.32*350
+1417-totalRelpasedCONFIRM
+#  451 966 ?= 448 969 almost the same
+
+# DEFINE
+totalRelpasedDEFINE <- 0.46*408 + 410*0.27+416*0.26
+408 + 410+416 - totalRelpasedDEFINE
+
+
+# AFFIRM
+totalRelpasedAFFIRM <-942-477
+942 - totalRelpasedAFFIRM
 #%%%%%
 # the calculations within this IPD dataset to calculate the dummy varaibles  are correct: 
-# see the first row (one year) and the last row (2 year)
+# compare the first row (one year) and the last row (2 year) with the last two tables.
 #%%%%%
 
 ## 5. Check if the IPD compatible with AD (from MS file)
